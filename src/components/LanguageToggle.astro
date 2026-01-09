@@ -12,24 +12,24 @@ const oppositeLang = getOppositeLang(lang);
 const alternateUrl = getAlternateLangUrl(currentPath, oppositeLang);
 ---
 
-<div class="flex gap-2 border-brutal">
+<div class="flex border-brutal header text-white">
   <a
     href={lang === 'es' ? currentPath : '/'}
     class={`px-3 py-1 font-bold uppercase text-sm transition-colors ${
       lang === 'es'
-        ? 'bg-primary text-white'
+        ? 'bg-primary'
         : 'bg-transparent hover:bg-gray-100 dark:hover:bg-gray-800'
     }`}
     aria-label="Español"
   >
     ES
   </a>
-  <div class="w-px bg-current"></div>
+  <div class="w-1 bg-border-dark"></div>
   <a
     href={alternateUrl}
     class={`px-3 py-1 font-bold uppercase text-sm transition-colors ${
       lang === 'en'
-        ? 'bg-primary text-white'
+        ? 'bg-primary'
         : 'bg-transparent hover:bg-gray-100 dark:hover:bg-gray-800'
     }`}
     aria-label="English"

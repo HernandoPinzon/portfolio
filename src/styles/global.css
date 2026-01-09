@@ -89,6 +89,10 @@ body {
   border: var(--border-width) solid var(--color-border-light);
 }
 
+.header.border-brutal {
+  border-color: var(--color-border-dark);
+}
+
 .dark .border-brutal {
   border-color: var(--color-border-dark);
 }

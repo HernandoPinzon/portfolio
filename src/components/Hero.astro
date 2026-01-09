@@ -55,14 +55,14 @@ const cvFileName = lang === 'es' ? 'CV-Hernando-Nunez-ES.pdf' : 'CV-Hernando-Nun
 
       <!-- Tagline -->
       <p
-        class="text-xl md:text-2xl text-muted-light dark:text-muted-dark mb-12 max-w-3xl mx-auto"
+        class="text-xl md:text-2xl text-muted-light dark:text-muted-dark mb-12 max-w-25 text-start mx-auto"
       >
         {t('hero.tagline', lang)}
       </p>
 
       <!-- CTA Buttons -->
       <div class="flex flex-wrap gap-4 justify-center">
-        <a href="#projects" class="btn-brutal-primary inline-block">
+        <a href="#projects" class="btn-brutal-primary inline-block p-2">
           {t('hero.cta.projects', lang)}
         </a>
         <a href={`/cv/${cvFileName}`} download class="btn-brutal inline-block">
