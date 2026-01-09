@@ -1,0 +1,77 @@
+---
+import type { Language } from '../constants/site';
+import { SITE_CONFIG } from '../constants/site';
+import { SOCIAL_LINKS } from '../constants/social';
+import { t } from '../utils/i18n';
+
+export interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="py-12 border-t-brutal bg-surface-light dark:bg-surface-dark">
+  <div class="container mx-auto">
+    <div class="max-w-5xl mx-auto">
+      <!-- Top Section -->
+      <div class="grid md:grid-cols-3 gap-8 mb-8">
+        <!-- Brand -->
+        <div>
+          <h3 class="text-2xl font-black mb-3 uppercase">
+            {SITE_CONFIG.name}
+          </h3>
+          <p class="text-muted-light dark:text-muted-dark">
+            {SITE_CONFIG.role[lang]}
+          </p>
+        </div>
+
+        <!-- Social Links -->
+        <div>
+          <h4 class="text-lg font-black mb-3 uppercase">
+            {t('contact.title', lang)}
+          </h4>
+          <div class="flex flex-col gap-2">
+            <a
+              href={SOCIAL_LINKS.github.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-muted-light dark:text-muted-dark hover:text-primary transition-colors font-semibold"
+            >
+              GitHub
+            </a>
+            <a
+              href={SOCIAL_LINKS.email.url}
+              class="text-muted-light dark:text-muted-dark hover:text-primary transition-colors font-semibold"
+            >
+              Email
+            </a>
+          </div>
+        </div>
+
+        <!-- Built With -->
+        <div>
+          <h4 class="text-lg font-black mb-3 uppercase">
+            {t('footer.builtWith', lang)}
+          </h4>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-primary text-white text-sm font-bold uppercase border-brutal-thin">
+              Astro
+            </span>
+            <span class="px-3 py-1 bg-secondary text-white text-sm font-bold uppercase border-brutal-thin">
+              Tailwind
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Section -->
+      <div class="border-t-brutal pt-6 text-center">
+        <p class="text-muted-light dark:text-muted-dark font-semibold">
+          &copy; {currentYear} {SITE_CONFIG.name}. {t('footer.rights', lang)}.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>

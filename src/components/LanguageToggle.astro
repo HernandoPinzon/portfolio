@@ -1,0 +1,39 @@
+---
+import type { Language } from '../constants/site';
+import { getAlternateLangUrl, getOppositeLang } from '../utils/i18n';
+
+export interface Props {
+  lang: Language;
+  currentPath: string;
+}
+
+const { lang, currentPath } = Astro.props;
+const oppositeLang = getOppositeLang(lang);
+const alternateUrl = getAlternateLangUrl(currentPath, oppositeLang);
+---
+
+<div class="flex gap-2 border-brutal">
+  <a
+    href={lang === 'es' ? currentPath : '/'}
+    class={`px-3 py-1 font-bold uppercase text-sm transition-colors ${
+      lang === 'es'
+        ? 'bg-primary text-white'
+        : 'bg-transparent hover:bg-gray-100 dark:hover:bg-gray-800'
+    }`}
+    aria-label="Español"
+  >
+    ES
+  </a>
+  <div class="w-px bg-current"></div>
+  <a
+    href={alternateUrl}
+    class={`px-3 py-1 font-bold uppercase text-sm transition-colors ${
+      lang === 'en'
+        ? 'bg-primary text-white'
+        : 'bg-transparent hover:bg-gray-100 dark:hover:bg-gray-800'
+    }`}
+    aria-label="English"
+  >
+    EN
+  </a>
+</div>

@@ -1,0 +1,76 @@
+---
+import { SITE_CONFIG } from '../constants/site';
+import type { Language } from '../constants/site';
+import '../styles/global.css';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  lang: Language;
+}
+
+const { title, description, lang } = Astro.props;
+
+const pageTitle = title
+  ? `${title} | ${SITE_CONFIG.name}`
+  : `${SITE_CONFIG.name} - ${SITE_CONFIG.role[lang]}`;
+const pageDescription = description || SITE_CONFIG.description[lang];
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={pageDescription} />
+    <meta name="author" content={SITE_CONFIG.name} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content={pageTitle} />
+    <meta property="twitter:description" content={pageDescription} />
+
+    <!-- Alternate languages -->
+    <link
+      rel="alternate"
+      hreflang="es"
+      href={lang === 'es' ? Astro.url.pathname : '/'}
+    />
+    <link
+      rel="alternate"
+      hreflang="en"
+      href={lang === 'en' ? Astro.url.pathname : `/en${Astro.url.pathname === '/' ? '' : Astro.url.pathname}`}
+    />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{pageTitle}</title>
+
+    <!-- Theme initialization script (runs before page render to prevent flash) -->
+    <script is:inline>
+      // Initialize theme from localStorage or system preference
+      const theme = (() => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+          return localStorage.getItem('theme');
+        }
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          return 'dark';
+        }
+        return 'light';
+      })();
+
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    </script>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

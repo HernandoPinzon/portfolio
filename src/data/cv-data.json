@@ -1,0 +1,90 @@
+{
+  "name": "Hernando Nuñez",
+  "role": {
+    "en": "Frontend Developer",
+    "es": "Desarrollador Frontend"
+  },
+  "location": "Manizales, Caldas, Colombia",
+  "about": {
+    "en": "A passionate about technology, I really like to build amazing projects and translate ideas into code also I'm always up to date in new technologies, in my free time I like to create projects to practice what I am learning.",
+    "es": "Apasionado por la tecnología, me gusta mucho construir proyectos increíbles y traducir ideas en código. Siempre estoy al día en nuevas tecnologías, en mi tiempo libre me gusta crear proyectos para practicar lo que estoy aprendiendo."
+  },
+  "experience": [
+    {
+      "role": {
+        "en": "FrontEnd Developer",
+        "es": "Desarrollador FrontEnd"
+      },
+      "company": "Opitech",
+      "period": {
+        "en": "August 2022 - Now (+3 years)",
+        "es": "Agosto 2022 - Actualidad (+3 años)"
+      },
+      "description": {
+        "en": "In this company I played my role as a web and mobile application developer. Working on different projects and with different teams",
+        "es": "En esta empresa desempeñé mi rol como desarrollador de aplicaciones web y móviles. Trabajando en diferentes proyectos y con diferentes equipos"
+      }
+    }
+  ],
+  "education": [
+    {
+      "degree": {
+        "en": "Software Engineer",
+        "es": "Ingeniero de Software"
+      },
+      "institution": {
+        "en": "Universidad Autonoma de Manizales",
+        "es": "Universidad Autónoma de Manizales"
+      },
+      "year": "2025"
+    },
+    {
+      "degree": {
+        "en": "Systems Technician",
+        "es": "Técnico en Sistemas"
+      },
+      "institution": "SENA",
+      "year": "2018"
+    }
+  ],
+  "skills": {
+    "languages": [
+      {
+        "name": {
+          "en": "Spanish",
+          "es": "Español"
+        },
+        "level": "native"
+      },
+      {
+        "name": {
+          "en": "English",
+          "es": "Inglés"
+        },
+        "level": "professional"
+      }
+    ],
+    "frameworks": [
+      "Angular",
+      "React",
+      "Next.js",
+      "React Native",
+      "Astro"
+    ],
+    "tools": [
+      "Git",
+      "VSCode",
+      "WebStorm",
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "TypeScript",
+      {
+        "name": {
+          "en": "Teamwork",
+          "es": "Trabajo en Equipo"
+        }
+      }
+    ]
+  }
+}

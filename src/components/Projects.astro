@@ -1,0 +1,72 @@
+---
+import type { Language } from '../constants/site';
+import { t } from '../utils/i18n';
+import ProjectCard from './ProjectCard.astro';
+import projectsData from '../data/projects.json';
+
+export interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+
+// Separate featured and regular projects
+const featuredProjects = projectsData.filter((project) => project.featured);
+const regularProjects = projectsData.filter((project) => !project.featured);
+---
+
+<section id="projects" class="py-20 bg-surface-light dark:bg-surface-dark">
+  <div class="container mx-auto">
+    <!-- Section Title -->
+    <h2
+      class="text-4xl md:text-5xl font-black mb-12 text-center uppercase"
+    >
+      {t('projects.title', lang)}
+    </h2>
+
+    <!-- Featured Projects -->
+    {
+      featuredProjects.length > 0 && (
+        <>
+          <h3 class="text-2xl md:text-3xl font-black mb-8 uppercase">
+            {t('projects.featured', lang)}
+          </h3>
+          <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8 mb-12">
+            {featuredProjects.map((project) => (
+              <ProjectCard
+                id={project.id}
+                title={project.title}
+                description={project.description}
+                image={project.image}
+                technologies={project.technologies}
+                githubUrl={project.githubUrl}
+                liveUrl={project.liveUrl}
+                lang={lang}
+              />
+            ))}
+          </div>
+        </>
+      )
+    }
+
+    <!-- Regular Projects -->
+    {
+      regularProjects.length > 0 && (
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {regularProjects.map((project) => (
+            <ProjectCard
+              id={project.id}
+              title={project.title}
+              description={project.description}
+              image={project.image}
+              technologies={project.technologies}
+              githubUrl={project.githubUrl}
+              liveUrl={project.liveUrl}
+              lang={lang}
+            />
+          ))}
+        </div>
+      )
+    }
+  </div>
+</section>

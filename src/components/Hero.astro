@@ -1,0 +1,74 @@
+---
+import type { Language } from '../constants/site';
+import { SITE_CONFIG } from '../constants/site';
+import { t } from '../utils/i18n';
+
+export interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const cvFileName = lang === 'es' ? 'CV-Hernando-Nunez-ES.pdf' : 'CV-Hernando-Nunez-EN.pdf';
+---
+
+<section
+  id="hero"
+  class="min-h-[90vh] flex items-center justify-center py-20 relative overflow-hidden"
+>
+  <!-- Geometric background pattern -->
+  <div class="absolute inset-0 opacity-10 dark:opacity-5 pointer-events-none">
+    <div class="absolute top-20 left-20 w-40 h-40 border-brutal-thick rotate-12"></div>
+    <div
+      class="absolute bottom-40 right-32 w-60 h-60 border-brutal-thick bg-gradient-brutal opacity-20"
+    >
+    </div>
+    <div
+      class="absolute top-1/2 left-1/4 w-32 h-32 border-brutal-thick -rotate-6"
+    >
+    </div>
+  </div>
+
+  <div class="container mx-auto relative z-10">
+    <div class="max-w-4xl mx-auto text-center">
+      <!-- Greeting -->
+      <p
+        class="text-lg md:text-xl font-semibold text-muted-light dark:text-muted-dark mb-4 uppercase tracking-wider"
+      >
+        {t('hero.greeting', lang)}
+      </p>
+
+      <!-- Name -->
+      <h1
+        class="text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight"
+      >
+        {SITE_CONFIG.name}
+      </h1>
+
+      <!-- Role with gradient -->
+      <div
+        class="inline-block card-brutal bg-gradient-brutal text-white px-8 py-4 mb-8"
+      >
+        <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold uppercase">
+          {SITE_CONFIG.role[lang]}
+        </h2>
+      </div>
+
+      <!-- Tagline -->
+      <p
+        class="text-xl md:text-2xl text-muted-light dark:text-muted-dark mb-12 max-w-3xl mx-auto"
+      >
+        {t('hero.tagline', lang)}
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="#projects" class="btn-brutal-primary inline-block">
+          {t('hero.cta.projects', lang)}
+        </a>
+        <a href={`/cv/${cvFileName}`} download class="btn-brutal inline-block">
+          {t('hero.cta.cv', lang)}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

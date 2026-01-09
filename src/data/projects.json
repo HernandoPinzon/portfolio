@@ -1,0 +1,63 @@
+[
+  {
+    "id": "1",
+    "title": {
+      "en": "E-Commerce Platform",
+      "es": "Plataforma de E-Commerce"
+    },
+    "description": {
+      "en": "A full-featured e-commerce platform built with React and Node.js, featuring real-time inventory management and secure payment processing.",
+      "es": "Una plataforma de comercio electrónico completa construida con React y Node.js, con gestión de inventario en tiempo real y procesamiento seguro de pagos."
+    },
+    "image": "https://picsum.photos/seed/project1/1200/675",
+    "technologies": ["React", "Node.js", "MongoDB", "Stripe"],
+    "githubUrl": "https://github.com/HernandoPinzon",
+    "liveUrl": "https://example.com",
+    "featured": true
+  },
+  {
+    "id": "2",
+    "title": {
+      "en": "Task Management App",
+      "es": "App de Gestión de Tareas"
+    },
+    "description": {
+      "en": "A collaborative task management application with real-time updates, built using Angular and Firebase.",
+      "es": "Una aplicación colaborativa de gestión de tareas con actualizaciones en tiempo real, construida con Angular y Firebase."
+    },
+    "image": "https://picsum.photos/seed/project2/1200/675",
+    "technologies": ["Angular", "Firebase", "TypeScript", "Material UI"],
+    "githubUrl": "https://github.com/HernandoPinzon",
+    "featured": true
+  },
+  {
+    "id": "3",
+    "title": {
+      "en": "Weather Dashboard",
+      "es": "Panel del Clima"
+    },
+    "description": {
+      "en": "A responsive weather dashboard that displays real-time weather data with interactive charts and forecasts.",
+      "es": "Un panel de clima responsivo que muestra datos meteorológicos en tiempo real con gráficos interactivos y pronósticos."
+    },
+    "image": "https://picsum.photos/seed/project3/1200/675",
+    "technologies": ["Next.js", "React", "Tailwind CSS", "Chart.js"],
+    "liveUrl": "https://example.com",
+    "featured": false
+  },
+  {
+    "id": "4",
+    "title": {
+      "en": "Mobile Fitness Tracker",
+      "es": "Rastreador de Fitness Móvil"
+    },
+    "description": {
+      "en": "A cross-platform mobile app for tracking workouts and nutrition, built with React Native.",
+      "es": "Una aplicación móvil multiplataforma para rastrear entrenamientos y nutrición, construida con React Native."
+    },
+    "image": "https://picsum.photos/seed/project4/1200/675",
+    "technologies": ["React Native", "Expo", "Redux", "SQLite"],
+    "githubUrl": "https://github.com/HernandoPinzon",
+    "featured": false
+  }
+]

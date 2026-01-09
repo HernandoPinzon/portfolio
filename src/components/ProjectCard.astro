@@ -1,0 +1,86 @@
+---
+import type { Language } from '../constants/site';
+import { t } from '../utils/i18n';
+
+export interface Props {
+  id: string;
+  title: { en: string; es: string };
+  description: { en: string; es: string };
+  image: string;
+  technologies: string[];
+  githubUrl?: string;
+  liveUrl?: string;
+  lang: Language;
+}
+
+const { id, title, description, image, technologies, githubUrl, liveUrl, lang } =
+  Astro.props;
+---
+
+<article class="card-brutal p-0 overflow-hidden group">
+  <!-- Project Image -->
+  <div class="relative overflow-hidden border-b-brutal bg-surface-light dark:bg-surface-dark h-56">
+    <img
+      src={image}
+      alt={title[lang]}
+      class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+      loading="lazy"
+    />
+    <div
+      class="absolute inset-0 bg-gradient-brutal opacity-0 group-hover:opacity-20 transition-opacity duration-300"
+    >
+    </div>
+  </div>
+
+  <!-- Project Content -->
+  <div class="p-6">
+    <!-- Title -->
+    <h3 class="text-2xl font-black mb-3 uppercase leading-tight">
+      {title[lang]}
+    </h3>
+
+    <!-- Description -->
+    <p class="text-muted-light dark:text-muted-dark mb-4 line-clamp-3">
+      {description[lang]}
+    </p>
+
+    <!-- Technologies -->
+    <div class="flex flex-wrap gap-2 mb-6">
+      {
+        technologies.map((tech) => (
+          <span class="px-2 py-1 bg-surface-light dark:bg-surface-dark text-xs font-bold uppercase border-brutal-thin">
+            {tech}
+          </span>
+        ))
+      }
+    </div>
+
+    <!-- Links -->
+    <div class="flex gap-3">
+      {
+        liveUrl && (
+          <a
+            href={liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-brutal-primary flex-1 text-center text-sm py-3"
+          >
+            {t('projects.viewLive', lang)}
+          </a>
+        )
+      }
+      {
+        githubUrl && (
+          <a
+            href={githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-brutal flex-1 text-center text-sm py-3"
+          >
+            {t('projects.viewCode', lang)}
+          </a>
+        )
+      }
+    </div>
+  </div>
+</article>
